@@ -6,16 +6,16 @@ test('Engineer instatiates with defualt data.', () => {
     expect(employee.getName()).toBe('John Smith');
     expect(employee.getID()).toBe(1);
     expect(employee.getEmail()).toBe('johnsmith@email.com');
-    expect(employee.getRole()).toBe('Engineer');
+    expect(employee.getGitHub()).toBe('github');
     expect(employee.getRole()).toBe('Engineer');
 });
 
 test('Engineer returns data passed into constructor.', () => {
-    const employee = new Engineer('Smith John', 25, 'email@johnsmith.com');
+    const employee = new Engineer('Smith John', 25, 'email@johnsmith.com', 'hubgit');
 
     expect(employee.getName()).toBe('Smith John');
     expect(employee.getID()).toBe(25);
     expect(employee.getEmail()).toBe('email@johnsmith.com');
-    expect(employee.getRole()).toBe('Engineer');
+    expect(employee.getGitHub()).toBe('hubgit');
     expect(employee.getRole()).toBe('Engineer');
 });
