@@ -1,7 +1,15 @@
 const inquirer = require('inquirer');
 
-function init() {
-    return inquirer.prompt([
+async function init(oldEmployees) {
+    let employees
+
+    if(!oldEmployees) {
+        employees = [];
+    } else {
+        employees = oldEmployees;
+    }      
+
+    const answers = await inquirer.prompt([
         {
             type: 'input',
             name: 'name',
@@ -57,7 +65,15 @@ function init() {
             message: 'Would you like to add more employees?',
             default: false
         }
-    ]);
+    ])
+
+    employees.push(answers);
+
+    if (answers.moreEmployees) {
+        return await init(employees);
+    } else {
+        return employees;
+    }
 }
 
 module.exports = init;
