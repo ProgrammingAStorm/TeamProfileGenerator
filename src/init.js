@@ -24,7 +24,7 @@ async function init(oldEmployees) {
             }
         },
         {
-            type: 'input',
+            type: 'number',
             name: 'ID',
             message: "What's the ID of the employee? (Required)",
             validate: IDInput => {
