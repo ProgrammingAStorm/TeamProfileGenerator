@@ -1,7 +1,6 @@
 const init = require('../src/init');
 
 jest.setTimeout(10000);
-jest.mock('../src/init');
 
 test('Gets input from user.', async () => {
     const answers = await init();
