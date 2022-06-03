@@ -13,7 +13,7 @@ module.exports = async function parse(employees = []) {
     for(let x = 0; x < length; x++) {
         const employee = employees.splice(0, 1)[0];
 
-        switch(employee.role) {
+        switch(employee.getRole()) {
             case 'Manager':
                 employees.push(new Manager(employee.name, employee.ID, employee.email, employee.extra));
             break;

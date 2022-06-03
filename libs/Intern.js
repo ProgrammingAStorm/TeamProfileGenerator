@@ -1,7 +1,5 @@
 const Employee = require('./Employee');
 
-jest.mock('./Employee');
-
 module.exports = class Intern extends Employee {
     constructor(name = 'John Smith', id = 1, email = 'johnsmith@email.com', school = 'school') {
         super(name, id, email);

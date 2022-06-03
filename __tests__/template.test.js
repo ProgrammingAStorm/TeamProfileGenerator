@@ -32,7 +32,7 @@ test('Returns string contatining certain html keywords', () => {
     const output = template(employees);
 
     expect(output).toEqual(expect.stringContaining('<!DOCTYPE html>'));
-    expect(output).toEqual(expect.stringContaining('<html>'));
+    expect(output).toEqual(expect.stringContaining('<html lang="en">'));
     expect(output).toEqual(expect.stringContaining('</html>'));
     expect(output).toEqual(expect.stringContaining('<head>'));
     expect(output).toEqual(expect.stringContaining('</head>'));
