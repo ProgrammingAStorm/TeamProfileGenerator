@@ -29,7 +29,7 @@ test('Returns string to be written to index.html.', () => {
 
 test('Returns string contatining certain html keywords', () => {
     const employees = parse();
-    const output = template(employees);
+    const output = template(employees); 
 
     expect(output).toEqual(expect.stringContaining('<!DOCTYPE html>'));
     expect(output).toEqual(expect.stringContaining('<html lang="en">'));
@@ -38,4 +38,4 @@ test('Returns string contatining certain html keywords', () => {
     expect(output).toEqual(expect.stringContaining('</head>'));
     expect(output).toEqual(expect.stringContaining('<body>'));
     expect(output).toEqual(expect.stringContaining('</body>'));
-}) 
+});

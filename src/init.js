@@ -1,7 +1,5 @@
 const inquirer = require('inquirer');
 
-
-
 module.exports = async function init(oldEmployees) {
     let employees
 

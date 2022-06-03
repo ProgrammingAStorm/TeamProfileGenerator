@@ -1,9 +1,3 @@
-// const fs = require('fs');
-// const Manager = require('../libs/Manager');
-// const Engineer = require('../libs/Engineer');
-// const Intern = require('../libs/Intern');
-// const { resolve } = require('path');
-
 module.exports = function template(employees = []) {
     if(!employees) {
         return false;
@@ -11,12 +5,13 @@ module.exports = function template(employees = []) {
         return false;
     }
 
-    let output = '            <div class="columns is-multiline is-centered is-variable">';
+    let output = `            <div class="columns is-multiline is-centered is-variable">`
 
     employees.forEach(employee => {
         switch(employee.getRole()) {
             case 'Manager':
-                output.concat(`                <div class="column is-one-third">
+                output = output.concat(`
+                <div class="column is-one-third">
                     <div class="card">
                         <div class="card-header">
                             <p class="card-header-title m-0">
@@ -45,7 +40,7 @@ module.exports = function template(employees = []) {
                                         Email:
                                     </p>
     
-                                    <a class="ml-4" href="">
+                                    <a class="ml-4" href="mailto:${employee.getEmail()}">
                                         ${employee.getEmail()}
                                     </a>
                                 </div>
@@ -65,7 +60,8 @@ module.exports = function template(employees = []) {
                 </div>`);
             break;
             case 'Engineer':
-                output.concat(`                <div class="column is-one-third">
+                output = output.concat(`
+                <div class="column is-one-third">
                     <div class="card">
                         <div class="card-header">
                             <p class="card-header-title m-0">
@@ -94,7 +90,7 @@ module.exports = function template(employees = []) {
                                         Email:
                                     </p>
     
-                                    <a class="ml-4" href="">
+                                    <a class="ml-4" href="mailto:${employee.getEmail()}">
                                         ${employee.getEmail()}
                                     </a>
                                 </div>
@@ -114,7 +110,8 @@ module.exports = function template(employees = []) {
                 </div>`);
             break;
             case 'Intern':
-                output.concat(`                <div class="column is-one-third">
+               output =  output.concat(`
+                <div class="column is-one-third">
                     <div class="card">
                         <div class="card-header">
                             <p class="card-header-title m-0">
@@ -143,7 +140,7 @@ module.exports = function template(employees = []) {
                                         Email:
                                     </p>
     
-                                    <a class="ml-4" href="">
+                                    <a class="ml-4" href="mailto:${employee.getEmail()}">
                                         ${employee.getEmail()}
                                     </a>
                                 </div>
@@ -165,7 +162,8 @@ module.exports = function template(employees = []) {
         }
     });
 
-    output.concat('            </div>');
+    output = output.concat(`
+            </div>`);
 
     return `<!DOCTYPE html>
     <html lang="en">
