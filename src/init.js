@@ -1,6 +1,8 @@
 const inquirer = require('inquirer');
 
-async function init(oldEmployees) {
+
+
+module.exports = async function init(oldEmployees) {
     let employees
 
     if(!oldEmployees) {
@@ -18,8 +20,7 @@ async function init(oldEmployees) {
                 if (nameInput) {
                     return true;
                 } else {
-                    console.log("What's the name of the employee? (Required)");
-                    return false;
+                    return "What's the name of the employee? (Required)";
                 }
             }
         },
@@ -31,7 +32,6 @@ async function init(oldEmployees) {
                 if (IDInput) {
                     return true;
                 } else {
-                    console.log("What's the ID of the employee? (Required)");
                     return false;
                 }
             }
@@ -44,8 +44,7 @@ async function init(oldEmployees) {
                 if (emailInput) {
                     return true;
                 } else {
-                    console.log("What's the email of the employee? (Required)");
-                    return false;
+                    return "What's the email of the employee? (Required)";
                 }
             }
         },
@@ -58,6 +57,57 @@ async function init(oldEmployees) {
                 'Engineer',
                 'Intern'
             ]
+        },
+        {
+            type: 'number',
+            name: 'extra',
+            message: "What's the office number of the manager? (Required)",
+            when: ({ role }) => {
+                if(role === 'Manager') {
+                    return true;
+                }
+                return false;
+            },
+            validate: extraInput => {
+                if(!extraInput) {
+                    return false;
+                }
+                return true;
+            }
+        },
+        {
+            type: 'input',
+            name: 'extra',
+            message: "What's the GitHub of the engineer? (Required)",
+            when: ({ role }) => {
+                if(role === 'Engineer') {
+                    return true;
+                }
+                return false;
+            },
+            validate: extraInput => {
+                if(!extraInput) {
+                    return false;
+                }
+                return true;
+            }
+        },
+        {
+            type: 'input',
+            name: 'extra',
+            message: "What's the school of the intern? (Required)",
+            when: ({ role }) => {
+                if(role === 'Intern') {
+                    return true;
+                }
+                return false;
+            },
+            validate: extraInput => {
+                if(!extraInput) {
+                    return false;
+                }
+                return true;
+            }
         },
         {
             type: 'confirm',
@@ -75,5 +125,3 @@ async function init(oldEmployees) {
         return employees;
     }
 }
-
-module.exports = init;

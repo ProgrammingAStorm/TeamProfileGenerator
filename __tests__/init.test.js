@@ -1,6 +1,6 @@
 const init = require('../src/init');
 
-jest.setTimeout(10000);
+jest.setTimeout(20000);
 
 test('Gets input from user.', async () => {
     const answers = await init();
@@ -11,4 +11,11 @@ test('Gets input from user.', async () => {
     expect(answer.email).toEqual(expect.any(String));
     expect(answer.role).toEqual(expect.any(String));
     expect(answer.moreEmployees).toEqual(expect.any(Boolean));
+
+    if(answer.role === 'Manager') {
+        expect(answer.extra).toEqual(expect.any(Number));
+    } else {
+        expect(answer.extra).toEqual(expect.any(String));
+    }
+    
 })
