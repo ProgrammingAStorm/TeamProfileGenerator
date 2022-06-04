@@ -1,3 +1,5 @@
+//Uses the array of employee objects to generate html of all of the cards containing the employee data which is then passed into the whole html string.
+//The generated string is returned to be written to a file.
 module.exports = function template(employees = []) {
     if(!employees) {
         return false;

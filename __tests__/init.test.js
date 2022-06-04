@@ -2,6 +2,7 @@ const init = require('../src/init');
 
 jest.setTimeout(20000);
 
+//Tests that the data returned from init() is the right data type.
 test('Gets input from user.', async () => {
     const answers = await init();
     const answer = answers[0];

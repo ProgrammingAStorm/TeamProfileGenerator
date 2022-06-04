@@ -1,5 +1,6 @@
 const inquirer = require('inquirer');
 
+//Uses inquirer to promt the user for input and returns the array of answers.
 module.exports = async function init(oldEmployees) {
     let employees
 
